@@ -7,6 +7,6 @@
 <fullyQualifiedTypeName name="model.Skin"/>
 <fullyQualifiedTypeName name="model.Pack"/>
 <fullyQualifiedTypeName name="java.util.HashMap"/>
-<fullyQualifiedTypeName name="repositories.Reader"/>
 <fullyQualifiedTypeName name="model.Tienda"/>
+<fullyQualifiedTypeName name="repositories.Reader"/>
 </qualifiedTypeNameHistroy>

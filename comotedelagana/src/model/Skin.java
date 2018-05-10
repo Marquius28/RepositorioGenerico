@@ -1,33 +1,79 @@
 package model;
 
-public class Skin {
-	private long id;
-	private Rareza rareza;
-	private float precio;
-	private String nombre;
-	private String img;
+import model.types.Rarity;
 
-	public Skin(long id, Rareza rareza, float precio, String nombre,
-			String img) {
+public class Skin {
+
+	private String id;
+	private String name, description;
+	private float price;
+	private Rarity type;
+	private String image;
+
+	public Skin(String id, String name, String description, float price,
+			Rarity type) {
 		super();
 		this.id = id;
-		this.rareza = rareza;
-		this.precio = precio;
-		this.nombre = nombre;
-		this.img = img;
+		this.name = name;
+		this.description = description;
+		this.price = price;
+		this.type = type;
+		this.image = name.replace(' ', '-') + ".jpeg";
 	}
 
-	@Override
-	public String toString() {
-		return "Skin [id=" + id + ", rareza=" + rareza + ", precio=" + precio
-				+ ", nombre=" + nombre + ", img=" + img + "]";
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+	public float getPrice() {
+		return price;
+	}
+
+	public void setPrice(float price) {
+		this.price = price;
+	}
+
+	public Rarity getType() {
+		return type;
+	}
+
+	public void setType(Rarity type) {
+		this.type = type;
+	}
+
+	public String getImage() {
+		return image;
+	}
+
+	public void setImage(String image) {
+		this.image = image;
 	}
 
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + (int) (id ^ (id >>> 32));
+		result = prime * result + ((id == null) ? 0 : id.hashCode());
 		return result;
 	}
 
@@ -40,49 +86,19 @@ public class Skin {
 		if (getClass() != obj.getClass())
 			return false;
 		Skin other = (Skin) obj;
-		if (id != other.id)
+		if (id == null) {
+			if (other.id != null)
+				return false;
+		} else if (!id.equals(other.id))
 			return false;
 		return true;
 	}
 
-	public long getId() {
-		return id;
-	}
-
-	public void setId(long id) {
-		this.id = id;
-	}
-
-	public Rareza getRareza() {
-		return rareza;
-	}
-
-	public void setRareza(Rareza rareza) {
-		this.rareza = rareza;
-	}
-
-	public float getPrecio() {
-		return precio;
-	}
-
-	public void setPrecio(float precio) {
-		this.precio = precio;
-	}
-
-	public String getNombre() {
-		return nombre;
-	}
-
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
-	}
-
-	public String getImg() {
-		return img;
-	}
-
-	public void setImg(String img) {
-		this.img = img;
+	@Override
+	public String toString() {
+		return "Skin [id=" + id + ", name=" + name + ", description="
+				+ description + ", price=" + price + ", type=" + type
+				+ ", image=" + image + "]";
 	}
 
 }

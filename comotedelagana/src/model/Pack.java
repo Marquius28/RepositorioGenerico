@@ -2,33 +2,66 @@ package model;
 
 public class Pack {
 
-	private long id;
-	private long idSkins;
-	private long idArma;
-	private float precio;
-	private String nombre;
+	private String idPack;
+	private String idSkin;
+	private String idWeapon;
+	private float price;
+	private String name;
 
-	public Pack(long id, long idSkins, long idArma, float precio,
-			String nombre) {
+	public Pack(String idPack, String idSkin, String idWeapon) {
 		super();
-		this.id = id;
-		this.idSkins = idSkins;
-		this.idArma = idArma;
-		this.precio = precio;
-		this.nombre = nombre;
+		this.idPack = idPack;
+		this.idSkin = idSkin;
+		this.idWeapon = idWeapon;
 	}
 
-	@Override
-	public String toString() {
-		return "Pack [id=" + id + ", idSkins=" + idSkins + ", idArma=" + idArma
-				+ ", precio=" + precio + ", nombre=" + nombre + "]";
+	public String getIdPack() {
+		return idPack;
+	}
+
+	public void setIdPack(String idPack) {
+		this.idPack = idPack;
+	}
+
+	public String getIdSkin() {
+		return idSkin;
+	}
+
+	public void setIdSkin(String idSkin) {
+		this.idSkin = idSkin;
+	}
+
+	public String getIdWeapon() {
+		return idWeapon;
+	}
+
+	public void setIdWeapon(String idWeapon) {
+		this.idWeapon = idWeapon;
+	}
+
+	public float getPrice() {
+		return price;
+	}
+
+	public void setPrice(float price) {
+		this.price = price;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
 	}
 
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + (int) (id ^ (id >>> 32));
+		result = prime * result + ((idSkin == null) ? 0 : idSkin.hashCode());
+		result = prime * result
+				+ ((idWeapon == null) ? 0 : idWeapon.hashCode());
 		return result;
 	}
 
@@ -41,49 +74,23 @@ public class Pack {
 		if (getClass() != obj.getClass())
 			return false;
 		Pack other = (Pack) obj;
-		if (id != other.id)
+		if (idSkin == null) {
+			if (other.idSkin != null)
+				return false;
+		} else if (!idSkin.equals(other.idSkin))
+			return false;
+		if (idWeapon == null) {
+			if (other.idWeapon != null)
+				return false;
+		} else if (!idWeapon.equals(other.idWeapon))
 			return false;
 		return true;
 	}
 
-	public long getId() {
-		return id;
-	}
-
-	public void setId(long id) {
-		this.id = id;
-	}
-
-	public long getIdSkins() {
-		return idSkins;
-	}
-
-	public void setIdSkins(long idSkins) {
-		this.idSkins = idSkins;
-	}
-
-	public long getIdArma() {
-		return idArma;
-	}
-
-	public void setIdArma(long idArma) {
-		this.idArma = idArma;
-	}
-
-	public float getPrecio() {
-		return precio;
-	}
-
-	public void setPrecio(float precio) {
-		this.precio = precio;
-	}
-
-	public String getNombre() {
-		return nombre;
-	}
-
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
+	@Override
+	public String toString() {
+		return "Pack [idPack=" + idPack + ", idSkin=" + idSkin + ", idWeapon="
+				+ idWeapon + ", price=" + price + ", name=" + name + "]";
 	}
 
 }
